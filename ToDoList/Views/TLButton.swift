@@ -1,18 +1,25 @@
-//
-//  TLButtonView.swift
-//  ToDoList
-//
-//  Created by Kajal, Kajal on 30/06/24.
-//
-
 import SwiftUI
 
 struct TLButtonView: View {
+    let title: String
+    let background: Color
+    let action: () -> Void
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: action) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(background)
+                Text(title)
+                    .foregroundColor(Color.white)
+                    .bold()
+            }
+        }
     }
 }
 
 #Preview {
-    TLButtonView()
+    TLButtonView(title: "value", background: .pink) {
+        // Action
+    }
 }
